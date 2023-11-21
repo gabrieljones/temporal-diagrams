@@ -2,6 +2,10 @@ plugins {
   scala
 }
 
+dependencyLocking {
+  lockAllConfigurations()
+}
+
 description = "temporal-diagrams-demo"
 
 object Versions {
