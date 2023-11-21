@@ -17,5 +17,22 @@ dependencies {
   implementation("com.github.mcanlas.temporal-diagrams:temporal-diagrams-server_3:${Versions.temporalDiagrams}")
 
   testImplementation("org.scalatest:scalatest_3:latest.release")
-  testImplementation("junit:junit:4.13")
+  testRuntimeOnly("org.junit.platform:junit-platform-engine:latest.release")
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher:latest.release")
+  testRuntimeOnly("co.helmethair:scalatest-junit-runner:latest.release")
+}
+
+tasks {
+  compileJava {
+    options.encoding = "UTF-8"
+  }
+  test {
+    jvmArgs("-Dfile.encoding=UTF-8")
+    useJUnitPlatform {
+      includeEngines("scalatest")
+      testLogging {
+        events("passed", "skipped", "failed", "standard_error")
+      }
+    }
+  }
 }
