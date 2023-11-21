@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint-test-and-publish:
-    name: Unit test and publish
+    name: Compile Demo
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,17 +17,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-          cache: sbt
+          cache: gradle
 
-      - run: sbt 'scalafixAll --check' scalafmtSbtCheck scalafmtCheck
-        env:
-          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+      - run: ./gradlew test
 
-      - run: sbt +test
-        env:
-          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
-
-      - run: sbt +publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
-          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
