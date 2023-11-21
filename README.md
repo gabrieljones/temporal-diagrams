@@ -1,30 +1,11 @@
-# temporal-diagrams
-Exploring a temporal aspect to diagrams
+# temporal-diagrams-demo via Gradle and Ji
+Compile temporal-diagrams-demo with gradle and jitpack dependencies
 
-## Features (v2)
+- https://github.com/mcanlas/temporal-diagrams
+- https://jitpack.io/#mcanlas/temporal-diagrams
 
-- Supports PlantUML
-- Supports Mermaid
-- Uses `cats` style encoding, derivation, and combinators
+# Why
 
-## Viewing PlantUML
+At work we have a jitpack mirror in our artifactory and we use Gradle for Scala.
 
-### With Google Chrome
-
-Install the extension [PlantUML Viewer](https://chrome.google.com/webstore/detail/plantuml-viewer/legbfeljfbjgfifnkmpoajgpgejojooj?hl=en)
-
-When viewing on GitHub, be sure to access the "raw" version of the file (as plain text, outside of the GitHub UI)
-
-### With IntelliJ
-
-Install the plugin [PlantUML Integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
-
-## See also
-
-- [Architecture](/docs/architecture.md)
-
-## Elsewhere
-
-- [Mermaid](http://mermaid.js.org/)
-- [PlantUML](https://plantuml.com/)
-- https://crashedmind.github.io/PlantUMLHitchhikersGuide/layout/layout.html
+Its easier for us to consume the lib from jitpack than from github through the firewall.
